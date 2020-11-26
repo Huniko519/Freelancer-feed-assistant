@@ -1,0 +1,37 @@
+{
+  "name": "Freelancer Feed Assistant",
+  "version": "1.0",
+  "description": "It allows you to be able to see detailed owner's information of posted projects.",
+  "author": "WJ H",
+
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.freelancer.com/*"],
+      "css": ["style.css"],
+      "js": ["jquery-1.10.2.js", "jquery.timeago.js", "axios.min.js", "script.js"]
+    }
+  ],
+
+  "manifest_version": 2
+}

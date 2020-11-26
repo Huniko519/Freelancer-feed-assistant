@@ -1,0 +1,147 @@
+<li ng-repeat="project in search.results.projects">
+  <a class="search-result-link" href="/projects/mobile-phone/mobile-app-with-firebase" target="_blank">
+    <div class="search-result-item">
+      <fl-project-tile project="project" user="search.user" tracking-event-section="search.trackingEventSection"
+        display-location="search.searchType === 'projects'" last-tracking-event="search.lastTrackingEvent"
+        index="$index + search.filters.common.offset + 1">
+        <figure class="info-card-iconBox">
+          <span class="Icon">
+            <!-- ngIf: ProjectTile.project.price.type === 'fixed' -->
+            <fl-icon name="ui-fixed-project" ng-if="ProjectTile.project.price.type === 'fixed'"><svg class="Icon-image"
+                width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M0 15.5v1c0 1.103.897 2 2 2h9v2H7v2h10v-2h-4v-2h9c1.103 0 2-.897 2-2v-1H0zm24-1v-11c0-1.103-.897-2-2-2H2c-1.103 0-2 .897-2 2v11h24z"
+                  fill="#0087E0"></path>
+              </svg></fl-icon><!-- end ngIf: ProjectTile.project.price.type === 'fixed' -->
+            <!-- ngIf: ProjectTile.project.price.type === 'hourly' -->
+          </span>
+        </figure>
+        <div class="info-card-inner">
+          <h2 class="info-card-title">
+            Mobile App with Firebase
+          </h2>
+          <p class="info-card-description">
+            Mobile App with Firebase. Mobile App with Firebase
+          </p>
+          <div class="info-card-grid">
+            <!-- Indicator for if the user has bid on the project already -->
+            <!-- ngIf: ProjectTile.project.hasUserBidOnProject -->
+            <!-- Project details -->
+            <!-- ngIf: ProjectTile.project.startTime -->
+            <div class="info-card-details info-card-grid-item" ng-if="ProjectTile.project.startTime">
+              <span class="Icon Icon--small info-card--iconSpace" title="Project status"
+                i18n-title-id="497c102c4f5c881a850f44b3e73975dd" i18n-title-msg="Project status" i18n-id="">
+                <fl-icon name="ui-hourglass-2"><svg class="Icon-image" width="24" height="24"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g fill="none">
+                      <path
+                        d="M20.5 3.805V1.2c0-.662-.536-1.2-1.196-1.2H4.946C4.286 0 3.75.538 3.75 1.2v2.606c0 .948.383 1.876 1.052 2.546L10.433 12l-5.631 5.65a3.577 3.577 0 0 0-1.052 2.545V22.8c0 .662.536 1.2 1.196 1.2h14.358c.66 0 1.196-.538 1.196-1.2v-2.605a3.58 3.58 0 0 0-1.052-2.547L13.817 12l5.631-5.648A3.63 3.63 0 0 0 20.5 3.805z"
+                        fill="#363F4D"></path>
+                      <path fill="#FFF" d="M8.536 20.4l3.589-3.6 3.59 3.6z"></path>
+                    </g>
+                  </svg></fl-icon>
+              </span>
+              <!-- ngIf: ProjectTile.project.status -->
+              <time class="info-card-details-item" i18n-id="1cccf7a129a4dc254fa40766bd3ec40e"
+                i18n-msg="${ ProjectTile.project.startTime | timeAgoFilter } ago">
+                less than a minute ago
+              </time>
+              <span class="info-card-details-item">
+                <span class="info-card-bids" i18n-id="4384ecda9eae12054e8c61b20faf9ab0"
+                  i18n-msg="— ${ProjectTile.pluralize.bids}">
+                  — 20 bids
+                </span>
+              </span>
+            </div><!-- end ngIf: ProjectTile.project.startTime -->
+            <!-- Deloitte utilization -->
+            <!-- ngIf: ProjectTile.project.utilization -->
+            <!-- Employer details -->
+            <div class="info-card-details info-card-details--hasTooltip info-card-grid-item">
+              <span class="Icon Icon--small info-card--iconSpace" title="Contest owner"
+                i18n-title-id="d4a1ba56edb003f1e379139218be68e7" i18n-title-msg="Contest owner" i18n-id="">
+                <fl-icon name="ui-user-non-verified"><svg class="Icon-image" width="24" height="24"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M12.125 13.5C5.87 13.5 1.5 17.2 1.5 22.5V24h21.25v-1.5c0-5.3-4.368-9-10.625-9zm0-2.833c2.93 0 5.313-2.394 5.313-5.334 0-2.94-2.383-5.333-5.313-5.333-2.93 0-5.313 2.393-5.313 5.333 0 2.94 2.384 5.334 5.313 5.334z"
+                      fill="#363F4D"></path>
+                  </svg></fl-icon>
+              </span>
+              <span>
+                <!-- ngIf: !ProjectTile.project.employer.complete ||
+                    (ProjectTile.project.employer.complete &&
+                    !ProjectTile.project.employer.reviews) --><span ng-if="!ProjectTile.project.employer.complete ||
+                    (ProjectTile.project.employer.complete &amp;&amp;
+                    !ProjectTile.project.employer.reviews)">
+                  No jobs completed yet
+                </span>
+                <!-- end ngIf: !ProjectTile.project.employer.complete ||
+                    (ProjectTile.project.employer.complete &&
+                    !ProjectTile.project.employer.reviews) -->
+                <!-- ngIf: ProjectTile.project.employer.complete && ProjectTile.project.employer.reviews -->
+              </span>
+            </div>
+            <!-- Location -->
+            <!-- ngIf: ProjectTile.project.locationDisplay -->
+            <!-- ngIf: !ProjectTile.project.locationDisplay && ProjectTile.project.isDeloitte -->
+            <!-- Project skills -->
+            <!-- ngIf: ProjectTile.project.skills -->
+            <div class="info-card-details info-card-grid-item info-card-skillsContainer"
+              ng-if="ProjectTile.project.skills">
+              <span class="Icon Icon--small info-card--iconSpace" title="Skills"
+                i18n-title-id="aa79c5d1cbe3d96218a92481bcfaa39c" i18n-title-msg="Skills" i18n-id="">
+                <fl-icon name="ui-tag"><svg class="Icon-image" width="24" height="24" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M23.648 13.551l-13.2-13.2A1.197 1.197 0 0 0 9.6 0H1.2C.536 0 0 .536 0 1.2v8.4c0 .32.126.623.352.848l13.2 13.2a1.197 1.197 0 0 0 1.696 0l8.4-8.4c.47-.469.47-1.227 0-1.697zM6 8.4a2.4 2.4 0 1 1-.001-4.8 2.4 2.4 0 0 1 0 4.799z"
+                      fill="#363F4D"></path>
+                  </svg></fl-icon>
+              </span>
+              <div class="info-card-skills">
+                <!-- ngRepeat: skill in ProjectTile.project.skills --><span
+                  ng-repeat="skill in ProjectTile.project.skills">Android</span>
+                <!-- end ngRepeat: skill in ProjectTile.project.skills --><span
+                  ng-repeat="skill in ProjectTile.project.skills">AngularJS</span>
+                <!-- end ngRepeat: skill in ProjectTile.project.skills --><span
+                  ng-repeat="skill in ProjectTile.project.skills">Google Firebase</span>
+                <!-- end ngRepeat: skill in ProjectTile.project.skills --><span
+                  ng-repeat="skill in ProjectTile.project.skills">iPhone</span>
+                <!-- end ngRepeat: skill in ProjectTile.project.skills --><span
+                  ng-repeat="skill in ProjectTile.project.skills">Mobile App Development</span>
+                <!-- end ngRepeat: skill in ProjectTile.project.skills -->
+              </div>
+            </div><!-- end ngIf: ProjectTile.project.skills -->
+          </div>
+          <div class="info-card-tags">
+            <fl-upgrade-tags upgrades="ProjectTile.project.upgrades" type="'project'" max-tags="3">
+              <ul class="UpgradeTag">
+                <!-- ngRepeat: upgrade in UpgradeTags.upgradesShown -->
+                <!-- ngIf: UpgradeTags.overflowCount -->
+              </ul>
+            </fl-upgrade-tags>
+          </div>
+          <!-- ngIf: ProjectTile.project.pool_ids.includes('facebook') -->
+        </div>
+
+        <!-- ngIf: ProjectTile.project.currency.code !== 'TKN' -->
+        <div class="info-card-action" ng-if="ProjectTile.project.currency.code !== 'TKN'">
+          <!-- ngIf: ProjectTile.project.price -->
+          <div class="info-card-price" ng-if="ProjectTile.project.price">
+            <!-- ngIf: ProjectTile.project.price.range --><span ng-if="ProjectTile.project.price.range">
+              $295 -
+              $886
+            </span><!-- end ngIf: ProjectTile.project.price.range -->
+            <!-- ngIf: ProjectTile.project.price.minimum -->
+          </div><!-- end ngIf: ProjectTile.project.price -->
+          <div class="info-card-price-type">
+            <span i18n-id="718e01467010e10a3d656443dae6e088" i18n-msg="USD [1: per hour ]">
+              USD
+              <!-- ngIf: ProjectTile.project.price.type === 'hourly' -->
+            </span>
+          </div>
+        </div><!-- end ngIf: ProjectTile.project.currency.code !== 'TKN' -->
+
+        <!-- ngIf: ProjectTile.project.currency.code === 'TKN' -->
+      </fl-project-tile>
+    </div>
+  </a>
+</li>
